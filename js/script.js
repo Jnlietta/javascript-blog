@@ -55,17 +55,25 @@ function generateTitleLinks(){
     const titleList = document.querySelector(optTitleListSelector);
     titleList.innerHTML = '';
   /* for each article */
-
-    /* get the article id */
-
-    /* find the title element */
-
-    /* get the title from the title element */
-
-    /* create HTML of the link */
-
-    /* insert link into titleList */
-
+    const articles = document.querySelectorAll(optArticleSelector);
+    console.log('show articles',articles);
+    let html = '';
+    for(let article of articles){
+        /* get the article id */
+        const articleId = article.getAttribute('id');
+        /* find the title element */
+        /* get the title from the title element */
+        const articleTitle = article.querySelector(optTitleSelector).innerHTML;
+        /* create HTML of the link */
+        const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';
+        /* insert link into titleList */
+        console.log(linkHTML);
+        //titleList.innerHTML = titleList.innerHTML + linkHTML;
+        //titleList.insertAdjacentHTML("beforeend",linkHTML);
+        html = html + linkHTML;
+        console.log(html);
+    }
+    titleList.innerHTML = html;
 }
 
 generateTitleLinks();
