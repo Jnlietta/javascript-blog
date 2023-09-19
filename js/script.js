@@ -48,6 +48,8 @@ function generateTitleLinks(customSelector = ''){
     titleList.innerHTML = '';
     /* for each article */
     const articles = document.querySelectorAll(optArticleSelector + customSelector);
+    console.log('customSelector:',customSelector);
+    console.log('opt+custom:',optArticleSelector + customSelector);
     //console.log('show articles:',articles);
     let html = '';
     for(let article of articles){
@@ -146,12 +148,13 @@ function generateTags(){
   
   function addClickListenersToTags(){
     /* find all links to tags */
-  
+    const tagLinks = document.querySelectorAll('a[href^="#tag-"]');
     /* START LOOP: for each link */
-  
+    for(let tagLink of tagLinks){
       /* add tagClickHandler as event listener for that link */
-  
+      tagLink.addEventListener('click',tagClickHandler);
     /* END LOOP: for each link */
+    }
   }
   
   addClickListenersToTags();
