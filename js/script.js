@@ -207,8 +207,8 @@ const authorClickHandler = function (event){
         activeAuthorLink.classList.remove('active');
         /*end loop: for each active author link*/
     }
-    /*find all author links with "href" attribute eual to the "href" constant*/
-    const hrefAuthorLinks = document.querySelectorAll(href);
+    /*find all author links with "href" attribute equal to the "href" constant*/
+    const hrefAuthorLinks = document.querySelectorAll('a[href="' + href + '"]');
     /*start loop: for each found author link*/
     for(let hrefAuthorLink of hrefAuthorLinks){
         /*add class active*/
