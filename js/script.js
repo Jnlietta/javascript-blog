@@ -84,8 +84,8 @@ const generateTitleLinks = function(customSelector = ''){
 generateTitleLinks();
 
 const generateTags = function(){
-    /* create a new variable allTags with an empty array */
-    let allTags = [];
+    /* create a new variable allTags with an empty object */
+    let allTags = {};
     /* find all articles */
     const articles = document.querySelectorAll(optArticleSelector); 
     //console.log('articles generateTags:',articles);
@@ -111,9 +111,11 @@ const generateTags = function(){
             html = html + linkHTML;
             //console.log(html);
             /* check if this link is NOT already in allTags */
-            if(allTags.indexOf(linkHTML) == -1){
+            //if(allTags.indexOf(linkHTML) == -1){ //tablica
+            if(!allTags[tag]) { //obiekt
                 /* [NEW] add generated code to allTags array */
-                allTags.push(linkHTML);
+                //allTags.push(linkHTML); //tablica
+                allTags[tag] = 1; //obiekt
             }
         /* END LOOP: for each tag */
         }
