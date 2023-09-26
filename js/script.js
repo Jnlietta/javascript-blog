@@ -108,7 +108,7 @@ const calculateTagsParams = function (tags) {
 }
 
 const calculateTagClass = function (count, params) {
-
+    
 }
 
 const generateTags = function(){
@@ -172,6 +172,7 @@ const generateTags = function(){
     const tagLinkHTML = calculateTagClass(allTags[tag], tagsParams);
     console.log('tagLinkHTML:', tagLinkHTML);
     allTagsHTML += '<li><a href="#tag-' + tag + '" class="'+ tagLinkHTML +'">' + tag + '</a> <span> (' + allTags[tag] + ')</span></li>';
+    //allTagsHTML += tagLinkHTML; ????????????
     //console.log('allTagsHTML:', allTagsHTML);
     }
     /* [NEW] END LOOP: for each tag in allTags: */
