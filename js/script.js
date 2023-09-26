@@ -109,6 +109,14 @@ const calculateTagsParams = function (tags) {
 
 const calculateTagClass = function (count, params) {
     
+    const normalizedCount = count - params.min;
+    const normalizedMax = params.max - params.min;
+    const percentage = normalizedCount / normalizedMax;
+    const classNumber = Math.floor( percentage * (optCloudClassCount - 1) + 1 );
+    console.log('classNumber',classNumber);
+    const cloudClassPrefix = optCloudClassPrefix + classNumber;
+    console.log('cloudClassPrefix: ',cloudClassPrefix);
+    return cloudClassPrefix;
 }
 
 const generateTags = function(){
@@ -173,7 +181,7 @@ const generateTags = function(){
     console.log('tagLinkHTML:', tagLinkHTML);
     allTagsHTML += '<li><a href="#tag-' + tag + '" class="'+ tagLinkHTML +'">' + tag + '</a> <span> (' + allTags[tag] + ')</span></li>';
     //allTagsHTML += tagLinkHTML; ????????????
-    //console.log('allTagsHTML:', allTagsHTML);
+    console.log('allTagsHTML:', allTagsHTML);
     }
     /* [NEW] END LOOP: for each tag in allTags: */
 
