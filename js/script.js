@@ -116,6 +116,8 @@ const generateTags = function(){
                 /* [NEW] add generated code to allTags array */
                 //allTags.push(linkHTML); //tablica
                 allTags[tag] = 1; //obiekt
+            } else {
+                allTags[tag]++;
             }
         /* END LOOP: for each tag */
         }
@@ -126,8 +128,24 @@ const generateTags = function(){
     /* [NEW] find list of tags in right column */
     const tagList = document.querySelector(optTagsListSelector);
 
-    /* [NEW] add html from allTags to tagList */
-    tagList.innerHTML = allTags.join(' ');
+                /* [NEW] add html from allTags to tagList */
+                //tagList.innerHTML = allTags.join(' ');
+                ////console.log('allTags:',allTags);
+    
+    /* [NEW] create variable for all links HTML code */
+    let allTagsHTML = '';
+
+    /* [NEW] START LOOP: for each tag in allTags: */
+    for(let tag in allTags){
+    /* [NEW] generate code of a link and add it to allTagsHTML */
+    //<li><a href="#">design</a> <span>(6)</span></li>
+    allTagsHTML += '<li><a href="#tag-' + tag + '">' + tag + '</a> <span> (' + allTags[tag] + ')</span></li>';
+    console.log('allTagsHTML:', allTagsHTML);
+    }
+    /* [NEW] END LOOP: for each tag in allTags: */
+
+    /*[NEW] add HTML from allTagsHTML to tagList */
+    tagList.innerHTML = allTagsHTML;
 }
   
 generateTags();
